@@ -24,7 +24,7 @@ RUN set -x \
     && cd /usr/local/proftpd \
     && sed -i 's/__mempcpy/mempcpy/g' lib/pr_fnmatch.c \
     && ./configure \
-    && make \
+    && make -j $(getconf _NPROCESSORS_ONLN) \
     && cd /usr/local/proftpd && make install \
     && make clean \
     && apk del .build-deps
