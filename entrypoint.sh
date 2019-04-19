@@ -5,4 +5,5 @@ if ! [ `id -u $PROFTPD_USER 2>/dev/null || echo -1` -ge 0 ]; then
 fi
 echo "$PROFTPD_USER:$PROFTPD_PASSWORD" | chpasswd
 chown -R $PROFTPD_USER:$PROFTPD_USER /ftp
+chmod -R 777 /ftp
 /usr/local/sbin/proftpd -n -c /usr/local/etc/proftpd.conf
