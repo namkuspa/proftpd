@@ -4,10 +4,10 @@ touch /var/log/proftpd/sftp.log
 
 if ! [ `id -u $PROFTPD_USER 2>/dev/null || echo -1` -ge 0 ]; then 
     echo "Creando usuario $PROFTPD_USER"
-    adduser -h /ftp -s /bin/false -H -u 82 -D -G $PROFTPD_USER ftp
+    adduser -h /ftp -s /bin/false -H -u 82 -D -G ftp $PROFTPD_USER
 fi
 echo "$PROFTPD_USER:$PROFTPD_PASSWORD" | chpasswd
-chown -R $PROFTPD_USER:$PROFTPD_USER /ftp
+chown -R $PROFTPD_USER:ftp /ftp
 chmod -R 777 /ftp
 
 echo "Generando llaves ssh"
