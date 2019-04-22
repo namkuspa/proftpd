@@ -40,7 +40,7 @@ COPY ./proftpd.conf /etc/proftpd/proftpd.conf
 COPY ./conf /etc/proftpd/conf
 COPY ./entrypoint.sh /entrypoint.sh
 
-EXPOSE 20 21 2222
+EXPOSE 21 22
 EXPOSE 60000-60100
 
 CMD ["/bin/sh", "/entrypoint.sh"]
